@@ -16,14 +16,15 @@
 	//发送sql语句，验证
 	//防止sql注入攻击
 	//变化验证逻辑
-	$sql="select password from admin where id=$id";
+	$sql="select password,name from admin where id=$id";
 	//1。通过输入的id来获取数据库的密码，然后再和输入的密码比对
 	$res=mysql_query($sql,$conn);
 	if($row=mysql_fetch_assoc($res)){
 		//查询到了
 		//2.取出数据库的密码
 		if($row['password']==md5($password)){
-			header("Location:empManage.php");
+			$name=$row['name'];
+			header("Location:empManage.php?name=$name");
 			exit();
 		}
 	}
