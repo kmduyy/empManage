@@ -54,6 +54,7 @@
 			$nextPage=$pageNow+1;
 			echo "<a href='empList.php?page=$nextPage'>下一页</a>&nbsp;&nbsp;&nbsp;";
 		}
+		echo "sleep``````";
 		
 	?>
 </html>
